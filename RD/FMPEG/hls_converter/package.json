@@ -1,0 +1,17 @@
+{
+  "name": "hls_converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "ffprobe-static": "^3.1.0",
+    "fs-extra": "^11.2.0"
+  }
+}
