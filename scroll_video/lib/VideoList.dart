@@ -44,7 +44,7 @@ class _VideoListState extends State<VideoList> {
             lastMilli = DateTime.now().millisecondsSinceEpoch;
           }
 
-          print("[VideoList] can build: $_canBuildVideo");
+          // print("[VideoList] can build: $_canBuildVideo");
 
           return true;
         },
@@ -101,8 +101,12 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     if (controller == null) {
       controller = widget.videoListController!.getBetterPlayerController();
       if (controller != null) {
+        print("[VideoList] Load: ${widget.videoUrl}");
         controller!.setupDataSource(BetterPlayerDataSource.network(
             widget.videoUrl,
+            videoFormat: BetterPlayerVideoFormat.hls,
+            useAsmsAudioTracks: true,
+            useAsmsTracks: true,
             cacheConfiguration:
                 const BetterPlayerCacheConfiguration(useCache: true)));
         if (!betterPlayerControllerStreamController.isClosed) {

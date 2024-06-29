@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:better_player/better_player.dart';
-import 'package:scroll_video/ListPage.dart';
 
 import 'VideoList.dart';
-import 'VideoModel.dart';
 
 void main() {
   runApp(MyApp());
