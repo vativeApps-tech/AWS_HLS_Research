@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:better_player/better_player.dart';
+import 'package:scroll_video/ListPage.dart';
 
 import 'VideoList.dart';
 import 'VideoModel.dart';
@@ -12,11 +13,19 @@ class MyApp extends StatelessWidget {
   final List<String> videoUrls = [
     "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/1/master.m3u8",
     "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/2/master.m3u8",
+    "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/2/master.m3u8",
+    "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/2/master.m3u8",
+    "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/2/master.m3u8",
+    "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/2/master.m3u8",
     "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/3/master.m3u8",
     "https://demoda-cdn-uae.s3.me-central-1.amazonaws.com/4/master.m3u8"
   ];
   final List<String> cloudFrontVideos = [
     "https://d1nxrumakffdde.cloudfront.net/1/master.m3u8",
+    "https://d1nxrumakffdde.cloudfront.net/2/master.m3u8",
+    "https://d1nxrumakffdde.cloudfront.net/2/master.m3u8",
+    "https://d1nxrumakffdde.cloudfront.net/2/master.m3u8",
+    "https://d1nxrumakffdde.cloudfront.net/2/master.m3u8",
     "https://d1nxrumakffdde.cloudfront.net/2/master.m3u8",
     "https://d1nxrumakffdde.cloudfront.net/3/master.m3u8",
     "https://d1nxrumakffdde.cloudfront.net/4/master.m3u8",
