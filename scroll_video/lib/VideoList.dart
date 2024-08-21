@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'dart:developer';
 
-import 'package:better_player/better_player.dart';
+import 'package:better_player_plus/better_player_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import 'ReuseableController.dart';
+import 'ReverseProxyChannel.dart';
 
 class VideoList extends StatefulWidget {
   final List<String> videoUrls;
@@ -53,7 +56,7 @@ class _VideoListState extends State<VideoList> {
           itemCount: widget.videoUrls.length,
           itemBuilder: (context, index) {
             return VideoPlayerItem(
-              videoUrl: widget.videoUrls[index],
+              videoUrl: widget.videoUrls[1],
               videoListController: videoListController,
               canBuildVideo: _checkCanBuildVideo,
             );
@@ -97,18 +100,31 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     super.dispose();
   }
 
-  void _setupController() {
+  Future<void> _setupController() async {
+    log("Video URL ${widget.videoUrl}");
     if (controller == null) {
       controller = widget.videoListController!.getBetterPlayerController();
       if (controller != null) {
+        String? proxyUrl;
+
+        try {
+          proxyUrl = await ReverseProxyChannel().getProxyUrl(widget.videoUrl);
+        } on PlatformException catch (e) {
+          print("Failed to get proxy URL: '${e.message}'.");
+        }
+
+        if (proxyUrl == null || proxyUrl.isEmpty) {
+          print("Using original URL due to proxy failure.");
+          proxyUrl = widget.videoUrl; // Fallback to original URL
+        }
+
         print("[VideoList] Load: ${widget.videoUrl}");
         controller!.setupDataSource(BetterPlayerDataSource.network(
-            widget.videoUrl,
+            proxyUrl ?? widget.videoUrl,
             videoFormat: BetterPlayerVideoFormat.hls,
             useAsmsAudioTracks: true,
             useAsmsTracks: true,
-            cacheConfiguration:
-                const BetterPlayerCacheConfiguration(useCache: true)));
+            cacheConfiguration: const BetterPlayerCacheConfiguration()));
         if (!betterPlayerControllerStreamController.isClosed) {
           betterPlayerControllerStreamController.add(controller);
         }
@@ -116,6 +132,44 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
       }
     }
   }
+
+//    void _setupController() async {
+//   if (controller == null) {
+//     controller = widget.videoListController!.getBetterPlayerController();
+//     if (controller != null) {
+//       print("[VideoList] Load: ${widget.videoUrl}");
+
+//       // Fetch the proxy URL from the native platform
+//       final ReverseProxyChannel reverseProxyChannel = ReverseProxyChannel();
+//       String? proxyUrl = await reverseProxyChannel.getProxyUrl(widget.videoUrl);
+//       log("ProxyUrl --------- $proxyUrl");
+
+//       if (proxyUrl != null) {
+//         controller!.setupDataSource(BetterPlayerDataSource.network(
+//             proxyUrl,
+//             videoFormat: BetterPlayerVideoFormat.hls,
+//             useAsmsAudioTracks: true,
+//             useAsmsTracks: true,
+//             cacheConfiguration:
+//                 const BetterPlayerCacheConfiguration(useCache: true)));
+//       } else {
+//         print("Failed to retrieve proxy URL. Loading original URL.");
+//         controller!.setupDataSource(BetterPlayerDataSource.network(
+//             widget.videoUrl,
+//             videoFormat: BetterPlayerVideoFormat.hls,
+//             useAsmsAudioTracks: true,
+//             useAsmsTracks: true,
+//             cacheConfiguration:
+//                 const BetterPlayerCacheConfiguration(useCache: true)));
+//       }
+
+//       if (!betterPlayerControllerStreamController.isClosed) {
+//         betterPlayerControllerStreamController.add(controller);
+//       }
+//       controller!.addEventsListener(onPlayerEvent);
+//     }
+//   }
+// }
 
   void _freeController() {
     if (!_initialized) {

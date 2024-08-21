@@ -15,6 +15,10 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		AD1E37B42C7603C400B2F424 /* HLSProxyServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E37B32C7603C400B2F424 /* HLSProxyServerManager.swift */; };
+		AD1E37B62C760E2100B2F424 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E37B52C760E2100B2F424 /* String+MD5.swift */; };
+		AD1E37B82C7617E800B2F424 /* VideoProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E37B72C7617E800B2F424 /* VideoProxyManager.swift */; };
+		AD37C9062C7632B300A72D19 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD37C9052C7632B300A72D19 /* Testing.swift */; };
 		FE09D00C599FA65201DCA765 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5697FB4CE5CDF93C38DB080F /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,10 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		999A318909175A7AE63A773E /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		AD1E37B32C7603C400B2F424 /* HLSProxyServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSProxyServerManager.swift; sourceTree = "<group>"; };
+		AD1E37B52C760E2100B2F424 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		AD1E37B72C7617E800B2F424 /* VideoProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProxyManager.swift; sourceTree = "<group>"; };
+		AD37C9052C7632B300A72D19 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,10 @@
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
+				AD1E37B32C7603C400B2F424 /* HLSProxyServerManager.swift */,
+				AD1E37B52C760E2100B2F424 /* String+MD5.swift */,
+				AD1E37B72C7617E800B2F424 /* VideoProxyManager.swift */,
+				AD37C9052C7632B300A72D19 /* Testing.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -376,8 +388,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD37C9062C7632B300A72D19 /* Testing.swift in Sources */,
+				AD1E37B42C7603C400B2F424 /* HLSProxyServerManager.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				AD1E37B82C7617E800B2F424 /* VideoProxyManager.swift in Sources */,
+				AD1E37B62C760E2100B2F424 /* String+MD5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

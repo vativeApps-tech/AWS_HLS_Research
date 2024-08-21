@@ -1,4 +1,4 @@
-import 'package:better_player/better_player.dart';
+import 'package:better_player_plus/better_player_plus.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 
 class ReusableVideoListController {
@@ -9,8 +9,9 @@ class ReusableVideoListController {
     for (int index = 0; index < 3; index++) {
       _betterPlayerControllerRegistry.add(
         BetterPlayerController(
-          BetterPlayerConfiguration(
+          const BetterPlayerConfiguration(
             handleLifecycle: false,
+            autoPlay: true,
             autoDispose: false,
             aspectRatio: 9 / 16,
           ),

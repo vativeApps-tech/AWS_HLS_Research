@@ -1,5 +1,5 @@
 PODS:
-  - better_player (0.0.1):
+  - better_player_plus (1.0.0):
     - Cache (~> 6.0.0)
     - Flutter
     - GCDWebServer
@@ -30,7 +30,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - better_player (from `.symlinks/plugins/better_player/ios`)
+  - better_player_plus (from `.symlinks/plugins/better_player_plus/ios`)
   - Flutter (from `Flutter`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -45,8 +45,8 @@ SPEC REPOS:
     - PINOperation
 
 EXTERNAL SOURCES:
-  better_player:
-    :path: ".symlinks/plugins/better_player/ios"
+  better_player_plus:
+    :path: ".symlinks/plugins/better_player_plus/ios"
   Flutter:
     :path: Flutter
   package_info_plus:
@@ -57,7 +57,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/wakelock_plus/ios"
 
 SPEC CHECKSUMS:
-  better_player: 2406bfe8175203c7a46fa15f9d778d73b12e1646
+  better_player_plus: 89f911bd69171edfe6d2ee689014355036bffdb0
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
@@ -70,4 +70,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
